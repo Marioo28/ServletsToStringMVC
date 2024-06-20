@@ -13,7 +13,6 @@
 	%>
 
 <form action="piesa" method="post">
- ID<input type="text" name="id"><br>
  Nume<input type="text" name="nume"><br>
  Categorie<input type="text" name="categorie"><br>
  Stoc<input type="text" name="stoc"><br>

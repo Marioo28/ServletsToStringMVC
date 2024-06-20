@@ -28,10 +28,10 @@ public class PiesaController {
 	}
 
 	@RequestMapping("/piesa")
-	public ModelAndView createPiece(@RequestParam("id") int id, @RequestParam("nume") String nume,
+	public ModelAndView createPiece( @RequestParam("nume") String nume,
 			@RequestParam("categorie") String categorie, @RequestParam("stoc") int stoc) {
 
-		Piesa piesa = new Piesa(id, nume, categorie, stoc);
+		Piesa piesa = new Piesa(nume, categorie, stoc);
 		piesaService.addPiesa(piesa);
 
 		Set<Piesa> piese = piesaService.getAllPieces();

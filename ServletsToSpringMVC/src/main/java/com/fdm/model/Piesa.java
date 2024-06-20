@@ -1,6 +1,8 @@
 package com.fdm.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +12,7 @@ import javax.persistence.Table;
 public class Piesa {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nume;
 	private String categorie;
@@ -19,8 +22,7 @@ public class Piesa {
 		
 	}
 
-	public Piesa(int id, String nume, String categorie, int stoc) {
-		this.id = id;
+	public Piesa( String nume, String categorie, int stoc) {
 		this.nume = nume;
 		this.categorie = categorie;
 		this.stoc = stoc;
