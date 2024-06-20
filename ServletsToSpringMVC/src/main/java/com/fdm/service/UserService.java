@@ -1,43 +1,52 @@
 package com.fdm.service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fdm.model.User;
-import com.fdm.repository.UserRepository;
+import com.fdm.repository.UserRepo;
 
 @Service
 public class UserService {
 
-	private final UserRepository userRepository;
+	private UserRepo userRepo;
 	private final TranslationService translationService;
 
 	@Autowired
-	public UserService(UserRepository userRepository, TranslationService translationService) {
-		this.userRepository = userRepository;
+	public UserService(UserRepo userRepo,TranslationService translationService) {
 		this.translationService = translationService;
+		this.userRepo = userRepo;
 	}
 
 	public Set<User> getAllUsers() {
-		return userRepository.getAllUsers();
+//		return userRepository.getAllUsers();
+		return userRepo.findAll().stream().collect(Collectors.toSet());
 	}
 
 	public void addUser(User user) {
-		userRepository.addUser(user);
+//		userRepository.addUser(user);
+		userRepo.save(user);
 	}
 
 	public void updateUser(User user) {
-		userRepository.updateUser(user);
+//		userRepository.updateUser(user);
+		userRepo.save(user);
 	}
 
 	public User getUser(String username) {
-		return userRepository.getUser(username);
+//		return userRepository.getUser(username);
+		return userRepo.getByUsername(username);
+				
 	}
 
 	public void deleteUser(String username) {
-		userRepository.deleteUser(username);
+//		userRepository.deleteUser(username);
+		userRepo.deleteById(username);
 	}
 
 	public String checkNewUser(User newUser, String language) {

@@ -5,10 +5,9 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class MyFrontController extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
-	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    protected Class<?>[] getRootConfigClasses() {
+        return null;
+    }
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
